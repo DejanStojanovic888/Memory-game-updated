@@ -1,0 +1,140 @@
+* {
+  margin: 0;padding: 0;box-sizing: border-box;
+}
+
+.timer {
+  width: 600px;
+  background-color: palevioletred;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 68px;
+  color: aliceblue;
+  margin: 50px auto;
+}
+
+.container {
+  width: 600px;
+  height: 600px;
+  margin: 50px auto;
+  box-shadow:  0 0 8px #ddd;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card1 {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+.card2 {
+  width: 85.71px;
+  height: 85.71px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+.card3 {
+  width: 75px;
+  height: 75px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+.back1, .front1 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  transition: 1s all;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 68px;
+  color: aliceblue;
+}
+.back2, .front2 {
+  width: 85.71px;
+  height: 85.71px;
+  position: absolute;
+  transition: 1s all;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 68px;
+  color: aliceblue;
+}
+.back3, .front3 {
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  transition: 1s all;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 68px;
+  color: aliceblue;
+}
+
+.back1, .back2, .back3 {
+  background-color: blueviolet;
+  transform: perspective(900px) rotateY(-180deg);
+}
+
+.front1, .front2, .front3 {
+  background-color: indigo;
+}
+
+.card1.flipped .front1 {
+  transform: perspective(900px) rotateY(180deg);
+}
+.card2.flipped .front2 {
+  transform: perspective(900px) rotateY(180deg);
+}
+.card3.flipped .front3 {
+  transform: perspective(900px) rotateY(180deg);
+}
+
+.card1.flipped .back1 {
+  transform: perspective(900px) rotateY(0);
+}
+.card2.flipped .back2 {
+  transform: perspective(900px) rotateY(0);
+}
+.card3.flipped .back3 {
+  transform: perspective(900px) rotateY(0);
+}
+
+.card1.flipped-two .front1 {
+  transform: perspective(900px) rotateY(180deg);
+}
+.card2.flipped-two .front2 {
+  transform: perspective(900px) rotateY(180deg);
+}
+.card3.flipped-two .front3 {
+  transform: perspective(900px) rotateY(180deg);
+}
+
+.card1.flipped-two .back1 {
+  transform: perspective(900px) rotateY(0);
+}
+.card2.flipped-two .back2 {
+  transform: perspective(900px) rotateY(0);
+}
+.card3.flipped-two .back3 {
+  transform: perspective(900px) rotateY(0);
+}
