@@ -50,7 +50,6 @@ function createRandElements() {
 }
 
 function createCards(level) {
-    // smanjti velicinu kvadratica pri povecanju levela
     console.log(pocetniLength)
     for (let i = 0; i < pocetniLength; i++) {
         const newCard = document.createElement('div')
@@ -75,9 +74,14 @@ function checkIfFinished() {
     if (arrTwoFlipped.length % 2 == 0) {
         if (arrTwoFlipped.length === pocetniLength) {
             console.log("BRAVO POBEDILI STE!")
-            const poruka = "BRAVO POBEDILI STE! \nDa li želite da pređete na sledeći nivo?";
+            // const poruka = "BRAVO POBEDILI STE! \nDa li želite da pređete na sledeći nivo?";
+            const poruka = level === 3 ? "BRAVO PRESLI STE IGRICU!!!" : "BRAVO POBEDILI STE!! \nDa li želite da pređete na sledeći nivo?";
             const daLiNastavljamo = confirm(poruka);
             if (daLiNastavljamo) {
+                if (level === 3) {
+                    clearInterval(timer)
+                    return;
+                }
                 // KORISNIK JE KLIKNUO "OK" (vraćena je vrednost true)
                 console.log("Super! Prelazimo na sledeći nivo...");
                 clearInterval(timer)
@@ -115,6 +119,7 @@ function timeUpgradeOnLevel(level) {
 function timerSet() {
     timerEl.innerText = time;
     timer = setInterval(() => {
+        time--;
         if (timerEl.innerText === '0') {
             stopAllClicks()
             const poruka = "Vreme je isteklo! \nDa li želite da igrate ponovo?";
@@ -128,7 +133,7 @@ function timerSet() {
                 return;
             }
         };
-        timerEl.innerText = timerEl.innerText - 1
+        timerEl.innerText = time;
     }, 1000)
 }
 
@@ -146,6 +151,13 @@ function flipCard() {
 function checkCards() {
     if (arrFlipped[0].innerText === arrFlipped[1].innerText) {
         console.log('Pogodak')
+        if (level === 3) {
+            time = time + 20
+        } else if (level === 2) {
+            time = time + 15
+        } else if (level === 1) {
+            time = time + 10
+        }
         arrTwoFlipped.push(arrFlipped[0])
         arrTwoFlipped.push(arrFlipped[1])
         arrTwoFlipped[arrTwoFlipped.length - 2].classList.add('flipped-two')
@@ -163,7 +175,6 @@ function checkCards() {
             addAllClicksExceptFlipped()
             console.log('Promasaj')
         }, 1000)
-
     }
 }
 
