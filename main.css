@@ -22,6 +22,21 @@
   flex-wrap: wrap;
 }
 
+.card-jocker {
+  width: 85.71px;
+  height: 85.71px;
+  position: relative;
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  overflow: hidden;
+  user-select: none;
+  /* background-color: palevioletred; */
+  background-image: url("joker.png"); 
+  background-size: cover;             
+  background-position: center;       
+  background-repeat: no-repeat; 
+}
+
 .card1 {
   width: 100px;
   height: 100px;
