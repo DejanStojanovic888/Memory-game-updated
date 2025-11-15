@@ -51,20 +51,44 @@ function createRandElements() {
 
 function createCards(level) {
     console.log(pocetniLength)
-    for (let i = 0; i < pocetniLength; i++) {
-        const newCard = document.createElement('div')
-        newCard.classList.add('card'+level)
+    if (level !== 2) {
+        for (let i = 0; i < pocetniLength; i++) {
+            const newCard = document.createElement('div')
+            newCard.classList.add('card' + level)
 
-        const newBack = document.createElement('div')
-        newBack.classList.add('back'+level)
-        newBack.innerHTML = arrRandElements[i]
+            const newBack = document.createElement('div')
+            newBack.classList.add('back' + level)
+            newBack.innerHTML = arrRandElements[i]
 
-        const newFront = document.createElement('div')
-        newFront.classList.add('front'+level)
+            const newFront = document.createElement('div')
+            newFront.classList.add('front' + level)
 
-        newCard.appendChild(newBack)
-        newCard.appendChild(newFront)
-        container.appendChild(newCard)
+            newCard.appendChild(newBack)
+            newCard.appendChild(newFront)
+            container.appendChild(newCard)
+        }
+    } else {
+        for (let i = 0; i < pocetniLength; i++) {
+            const newCard = document.createElement('div')
+            const newCard2 = document.createElement('div')
+            newCard2.classList.add('card-jocker')
+            if (i === 24) {
+                container.appendChild(newCard2);
+            }
+
+            newCard.classList.add('card' + level)
+
+            const newBack = document.createElement('div')
+            newBack.classList.add('back' + level)
+            newBack.innerHTML = arrRandElements[i]
+
+            const newFront = document.createElement('div')
+            newFront.classList.add('front' + level)
+
+            newCard.appendChild(newBack)
+            newCard.appendChild(newFront)
+            container.appendChild(newCard)
+        }
     }
 }
 
