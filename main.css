@@ -24,7 +24,8 @@ body {
 }
 
 .timer {
-  width: 600px;
+  width: 90%;
+  max-width: 600px;
   background-color: palevioletred;
   display: flex;
   justify-content: center;
@@ -35,8 +36,9 @@ body {
 }
 
 .container {
-  width: 600px;
-  height: 600px;
+  width: 90%;
+  max-width: 600px;
+  aspect-ratio: 1;
   margin: 50px auto;
   box-shadow: 0 0 8px #ddd;
   display: flex;
@@ -182,8 +184,55 @@ body {
   transform: perspective(900px) rotateY(180deg);
 }
 
-.card1.flipped-two .back1 {
+.card1.flipped-two .back3 {
   transform: perspective(900px) rotateY(0);
+}
+
+@media (max-width: 768px) {
+  .timer {
+    font-size: 48px;
+    margin: 30px auto;
+  }
+
+  .container {
+    margin: 30px auto;
+  }
+
+  .card1 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .card2 {
+    width: 68px;
+    height: 68px;
+  }
+
+  .card3 {
+    width: 60px;
+    height: 60px;
+  }
+
+  .back1,
+  .front1 {
+    width: 80px;
+    height: 80px;
+    font-size: 56px;
+  }
+
+  .back2,
+  .front2 {
+    width: 68px;
+    height: 68px;
+    font-size: 48px;
+  }
+
+  .back3,
+  .front3 {
+    width: 60px;
+    height: 60px;
+    font-size: 48px;
+  }
 }
 
 .card2.flipped-two .back2 {
